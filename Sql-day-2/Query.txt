@@ -1,0 +1,53 @@
+create table batchT(
+batchT_id int primary key,
+batchT_name VARCHAR(30),
+batchT_totalmembers VARCHAR(30)
+);
+
+create table mentor(
+mentor_id int primary key,
+mentor_name VARCHAR(30),
+mentor_designation VARCHAR(30),
+mentor_experience VARCHAR(30)
+);
+
+create table queries(
+queries_id int primary key,
+queries_topic VARCHAR(30),
+queries_details VARCHAR(30),
+queries_timeslot VARCHAR(30)
+);
+
+create table task(
+task_id int primary key,
+task_name VARCHAR(30),
+task_module VARCHAR(30),
+task_details VARCHAR(30)
+);
+
+create table student(
+student_id int primary key,
+student_first_name VARCHAR(30),
+student_last_name VARCHAR(30),
+student_email_id VARCHAR(30),
+student_contact_number int,
+batchT_id int,
+mentor_id int,
+queries_id int,
+task_id int,
+foreign key(batchT_id) references batchT(batchT_id),
+foreign key(mentor_id) references mentor(mentor_id),
+foreign key(queries_id) references queries(queries_id),
+foreign key(task_id) references task(task_id)
+);
+
+describe batchT;
+describe mentor;
+describe task;
+describe queries;
+
+
+
+
+ 
+
